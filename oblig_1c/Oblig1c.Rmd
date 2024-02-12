@@ -1,0 +1,116 @@
+---
+title: "Oblig1c.Rmd"
+author: "Inge Johan Johansson"
+date: "`r Sys.Date()`" 
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(alr4)
+```
+
+## R Markdown
+Eg har gjort R basic.
+
+
+
+## Including Plots
+
+#You can also embed plots, for example:
+
+#```{r pressure, echo=FALSE}
+#plot(pressure)
+#```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Oppgave 3: Produser dataene fra oblig 1 i en PDF.
+
+```{r data_kvit}
+data_kvit <- read.csv("rosa_kvit42.csv")
+data_groon <- read.csv("rosa_groon42.csv")
+
+head(data_kvit[, c("Lower", "Upper")], 31)
+head(data_groon[, c("Lower", "Upper")], 31)
+```
+
+
+Oppgave 4: 
+```{r regression_model}
+# read.csv funksjon oppgave 1b. Leser Terning_20.csv
+data_terning <- read.csv("Terning_20.csv")
+
+# Regresjons linje
+regression_model <- lm(Lengde ~ Hoyde, data = data_terning)
+
+summary(regression_model)
+
+# Plotter splatterplot og regresjons linje
+plot(data_terning$Hoyde, data_terning$Lengde, main = "Lengde vs Hoyde", xlab = "Hoyde", ylab = "Lengde", pch = 19)
+abline(regression_model, col = "red")
+```
+
+``` {r fuel2001}
+head(fuel2001)
+write.csv(fuel2001, "fuel2001.csv")
+```
+
+
+
+
+Oppgave 24 kapittel4
+
+```{r oppgave 24 kapittel 4}
+# A)
+# Sekvens for Kron og mynt
+sequence <- "MKMKKKMMMKMMKKKKKMKKMMMMKKKMMMMKKKKMMMKKKKMMMKMKKK"
+
+# Lengden på sekvensen, som tilsvarer antall kast
+n <- nchar(sequence)
+
+# Beregn sannsynligheten
+P <- (1/2)^n
+
+# Skriv ut resultatet
+print(P)
+
+# B)
+# Beregn sannsynligheten for den spesifikke sekvensen
+P2 <- (1/2)^n
+
+# Skriv ut resultatet
+print(P2)
+
+
+# C)
+# Definer antall kast og antall "K"
+K <- 27
+
+# Beregner antall kombinasjoner
+combinations <- choose(n, K)
+
+# Skriver ut resultatet
+print(combinations)
+
+
+# D)
+total = 2^n
+print(total)
+
+# E)
+# Definer antall kast (n), antall "K" (k), og suksesssannsynlighet for hvert kast (p)
+K <- 27
+p <- 1/2
+
+# Beregn binomialkoeffisienten
+binom_coeff <- choose(n, K)
+
+# Beregn sannsynligheten for nøyaktig k "K" på n kast
+P <- binom_coeff * (p^K) * ((1-p)^(n-K))
+
+# Skriv ut resultatet
+print(P)
+
+```
+

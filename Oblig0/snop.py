@@ -4,16 +4,12 @@ import pandas
 import matplotlib.pyplot as plt
 import numpy
 
-
-rosa_kvit = "/home/ingejohan/statistikk/oblig_1a/data/rosa_kvit42.csv"
-rosa_groon = "/home/ingejohan/statistikk/oblig_1a/data/rosa_groon42.csv"
+rosa_kvit = "oblig_1a/data/rosa_kvit42.csv"
+rosa_groon = "oblig_1a/data/rosa_groon42.csv"
 
 #importing csv files
 rk = pandas.read_csv(rosa_kvit)
 rg = pandas.read_csv(rosa_groon)
-
-print(rk)
-print(rg)
 
 # Plott Span in Rosa groon
 a = 0
