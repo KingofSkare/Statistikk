@@ -63,54 +63,116 @@ Oppgave 24 kapittel4
 
 ```{r oppgave 24 kapittel 4}
 # A)
-# Sekvens for Kron og mynt
-sequence <- "MKMKKKMMMKMMKKKKKMKKMMMMKKKMMMMKKKKMMMKKKKMMMKMKKK"
+# Antall elementer å velge fra
+n <- 12
 
-# Lengden på sekvensen, som tilsvarer antall kast
-n <- nchar(sequence)
+# Antall valg som skal gjøres
+r <- 5
 
-# Beregn sannsynligheten
-P <- (1/2)^n
+# Beregn antall måter ved å heve n til r's potens
+antall_måter <- n^r
 
-# Skriv ut resultatet
-print(P)
+print(antall_måter)
+
 
 # B)
-# Beregn sannsynligheten for den spesifikke sekvensen
-P2 <- (1/2)^n
+# Antall elementer å velge fra
+n <- 12
 
-# Skriv ut resultatet
-print(P2)
+# Antall valg som skal gjøres
+r <- 5
 
+# Beregn kombinasjoner med repetisjon ved hjelp av choose-funksjonen
+kombinasjoner <- choose(n + r - 1, r)
+
+print(kombinasjoner)
 
 # C)
-# Definer antall kast og antall "K"
-K <- 27
+# Antall elementer å velge fra
+n <- 12
 
-# Beregner antall kombinasjoner
-combinations <- choose(n, K)
+# Antall valg som skal gjøres
+r <- 5
 
-# Skriver ut resultatet
-print(combinations)
+# Beregn permutasjoner uten tilbakelegging
+permutasjoner <- factorial(n) / factorial(n - r)
+
+print(permutasjoner)
+
 
 
 # D)
-total = 2^n
-print(total)
+# Antall elementer å velge fra
+n <- 12
+
+# Antall valg som skal gjøres
+r <- 5
+
+# Beregn kombinasjoner uten tilbakelegging ved hjelp av choose-funksjonen
+kombinasjoner <- choose(n, r)
+
+print(kombinasjoner)
+
 
 # E)
-# Definer antall kast (n), antall "K" (k), og suksesssannsynlighet for hvert kast (p)
-K <- 27
-p <- 1/2
+#Ordnet med tilbakelegging (Lås med fem-sifret kode):
+#Her kan hvert siffer være mellom 0 og 11, og sifre kan gjentas
+n <- 12  # 12 mulige sifre (0-11)
+r <- 5   # 5 sifre i koden
+mulige_kombinasjoner <- n^r
+print(mulige_kombinasjoner)
 
-# Beregn binomialkoeffisienten
-binom_coeff <- choose(n, K)
+#Ordnet uten tilbakelegging (Top 5 plasseringer i et løp med 12 deltakere)
+#Her kan en løper ikke inneha mer enn en av de topp 5 plasseringene.
+n <- 12  # 12 deltakere
+r <- 5   # Topp 5 plasseringer
+mulige_perumtasjoner <- factorial(n) / factorial(n - r)
+print(mulige_perumtasjoner)
 
-# Beregn sannsynligheten for nøyaktig k "K" på n kast
-P <- binom_coeff * (p^K) * ((1-p)^(n-K))
+#Uordnet med tilbakelegging (Fruktsalat med 5 frukter valgt fra 12 mulige):
+#Her kan samme frukt velges flere ganger, men rekkefølgen betyr ingenting.
+n <- 12  # 12 forskjellige frukter
+r <- 5   # 5 frukter i salaten
+mulige_kombinasjoner <- choose(n + r - 1, r)
+print(mulige_kombinasjoner)
 
-# Skriv ut resultatet
-print(P)
+
+#Uordnet uten tilbakelegging (Fruktkurv med 5 frukter valgt fra 12 mulige):
+#Her er det bare en av samme frukt, men rekkefølgen betyr ingenting.
+n <- 12  # 12 mulige gaver
+r <- 5   # 5 unike gaver i kurven
+mulige_kombinasjoner <- choose(n, r)
+print(mulige_kombinasjoner)
+
 
 ```
+Oppgave 15 og 16 kapittel 5
+```{r oppgave 15 og 16 kapittel 5} 
+# Definerer sannsynligheter
+p <- 0.37  # Sannsynlighet for M (mynt)
+q <- 1 - p  # Sannsynlighet for K (kron)
 
+# Antall M og K i sekvensen
+antall_M <- 14
+antall_K <- 10  # Justert total antall basert på sekvenslengde minus antall M
+
+# Beregner sannsynligheten for sekvensen
+sannsynlighet_sekvens <- (p^antall_M) * (q^antall_K)
+
+# Skriver ut sannsynligheten
+print(sannsynlighet_sekvens)
+
+
+# Parametre
+n <- 37  # Totalt antall kast
+k <- 14  # Antall ønskede suksesser (M)
+p <- 0.37  # Sannsynlighet for M
+
+# Binomisk sannsynlighet
+sannsynlighet <- dbinom(k, n, p)
+
+print(sannsynlighet)
+
+
+
+```

@@ -74,3 +74,5 @@ P <- binom_coeff * (p^k) * ((1-p)^(n-k))
 # Skriv ut resultatet
 print(P)
 
+
+

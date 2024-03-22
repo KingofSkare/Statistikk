@@ -61,3 +61,14 @@ alpha_5, beta_5, SSE_5, SE_5 = linear_regression_and_plot(p1, "Hoyde", "Lengde",
 
 # Perform linear regression, plot, calculate SSE, and calculate SE for the all data subset
 alpha_30, beta_30, SSE_30, SE_30 = linear_regression_and_plot(p1, "Hoyde", "Lengde", 30, "30_points")
+
+# Save the results to a csv file
+results = pd.DataFrame({
+    "Subset": ["5_points", "30_points"],
+    "alpha": [alpha_5, alpha_30],
+    "beta": [beta_5, beta_30],
+    "SSE": [SSE_5, SSE_30],
+    "SE": [SE_5, SE_30]
+})
+results.to_csv("oblig_1b/results.csv", index=False)
+print(results)
